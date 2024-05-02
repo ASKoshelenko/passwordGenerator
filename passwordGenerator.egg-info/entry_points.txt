@@ -1,3 +1,0 @@
-[console_scripts]
-password-generator = passwordGenerator.cli:main
-
