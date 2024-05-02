@@ -11,23 +11,26 @@ def setup_logging(verbosity, write_to_file):
     }
     console_log_level = levels.get(verbosity, logging.INFO)
 
-    # Clear any existing handlers
-    logging.getLogger().handlers = []
+    # Создаем логгер
+    logger = logging.getLogger()
+    logger.setLevel(logging.DEBUG)  # Устанавливаем самый низкий уровень для логгера
 
-    # Console formatter
-    console_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    # Очищаем предыдущие обработчики, если они есть
+    if logger.hasHandlers():
+        logger.handlers.clear()
+
+    # Console handler
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(console_log_level)
-    console_handler.setFormatter(console_formatter)
-    logging.getLogger().addHandler(console_handler)
+    console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+    logger.addHandler(console_handler)
 
     # File handler setup if requested
     if write_to_file:
-        file_formatter = logging.Formatter('%(asctime)s - Executed Command: "%(message)s"')
-        file_handler = logging.FileHandler('test_results.txt')
-        file_handler.setLevel(logging.INFO)
-        file_handler.setFormatter(file_formatter)
-        logging.getLogger().addHandler(file_handler)
+        file_handler = logging.FileHandler('logs.txt')
+        file_level = levels.get(verbosity, logging.INFO)
+        file_handler.setLevel(file_level)  # Установка уровня логирования для файла
+        file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - Executed Command: "%(message)s"'))
+        logger.addHandler(file_handler)
 
-    # Set the lowest logging level on logger
-    logging.getLogger().setLevel(min(console_log_level, logging.INFO))
+    return logger
