@@ -1,8 +1,8 @@
 import logging
-import sys
+import os
 
 def setup_logging(verbosity, write_to_file):
-    """Configure logging to console and optionally to a file."""
+    """Настройка логгирования в консоль и, опционально, в файл."""
     levels = {
         0: logging.WARNING,
         1: logging.INFO,
@@ -20,16 +20,17 @@ def setup_logging(verbosity, write_to_file):
         logger.handlers.clear()
 
     # Console handler
-    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler = logging.StreamHandler()
     console_handler.setLevel(console_log_level)
     console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
     logger.addHandler(console_handler)
 
     # File handler setup if requested
     if write_to_file:
-        file_handler = logging.FileHandler('logs.txt')
-        file_level = levels.get(verbosity, logging.INFO)
-        file_handler.setLevel(file_level)  # Установка уровня логирования для файла
+        # Установка абсолютного пути к файлу логов
+        log_file_path = '/Users/ask/PycharmProjects/passGen/passwordGenerator/logs/log.txt'
+        file_handler = logging.FileHandler(log_file_path)
+        file_handler.setLevel(levels.get(verbosity, logging.INFO))
         file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - Executed Command: "%(message)s"'))
         logger.addHandler(file_handler)
 

@@ -10,7 +10,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'password-generator=passwordGenerator.cli:main',
+            'password-generator=cli.main:main',
         ],
     },
 )
