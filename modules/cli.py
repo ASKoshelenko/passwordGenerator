@@ -2,9 +2,12 @@ import argparse
 import string
 import logging
 import os
+
 from passwordGenerator.password_gen.random_password import generate_random_password
 from passwordGenerator.password_gen.pattern_password import generate_pattern_password
 from passwordGenerator.modules.logger import setup_logging
+
+
 
 def main():
     epilog = """

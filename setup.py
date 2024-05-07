@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        # здесь могут быть ваши зависимости
+        'argparse==1.4.0'
     ],
     entry_points={
         'console_scripts': [
