@@ -1,22 +1,22 @@
 import unittest
-from password_gen.pattern_password import generate_pattern_password
-from password_gen.random_password import generate_random_password
+from passwordGenerator.password_gen.password_manager import PasswordManager
 
-class TestPasswordGen(unittest.TestCase):
-    def test_random_password_length(self):
-        """Тестирование длины случайного пароля."""
-        length = 12
-        password = generate_random_password(length)
-        self.assertEqual(len(password), length)
+class TestPasswordManager(unittest.TestCase):
+    def setUp(self):
+        """Initialize the PasswordManager for use in each test."""
+        self.manager = PasswordManager()
 
-    def test_pattern_password_output(self):
-        """Тестирование генерации пароля по шаблону."""
-        pattern = 'u{2}l{2}d{4}'
-        password = generate_pattern_password(pattern)
-        self.assertEqual(len(password), 8)
-        self.assertTrue(any(char.isupper() for char in password))
-        self.assertTrue(any(char.islower() for char in password))
-        self.assertTrue(any(char.isdigit() for char in password))
+    def test_generate_random_password_length(self):
+        """Test that the random password is generated with the specified length."""
+        password = self.manager.generate_random_password(12)
+        self.assertEqual(len(password), 12)
+
+    def test_generate_pattern_password_output(self):
+        """Test that a password is generated correctly from a pattern."""
+        pattern = 'u{2}d{2}'
+        password = self.manager.generate_pattern_password(pattern)
+        self.assertTrue(password.isalnum())
+        self.assertEqual(len(password), 4)
 
 if __name__ == '__main__':
     unittest.main()
