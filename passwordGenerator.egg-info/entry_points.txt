@@ -1,0 +1,2 @@
+[console_scripts]
+password-generator = cli.main:main

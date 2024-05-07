@@ -28,8 +28,8 @@ def setup_logging(verbosity, write_to_file):
     # File handler setup if requested
     if write_to_file:
         # Установка абсолютного пути к файлу логов
-        log_file_path = '/Users/ask/PycharmProjects/passGen/passwordGenerator/logs/log.txt'
-        file_handler = logging.FileHandler(log_file_path)
+        log_file_path = os.path.join(os.path.dirname(__file__), '..', 'logs', 'log.txt')
+        file_handler = logging.FileHandler(log_file_path, encoding='utf-8', errors='ignore')
         file_handler.setLevel(levels.get(verbosity, logging.INFO))
         file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - Executed Command: "%(message)s"'))
         logger.addHandler(file_handler)

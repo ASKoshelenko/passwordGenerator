@@ -19,8 +19,7 @@ class TestCLI(unittest.TestCase):
         with patch('sys.argv', test_args), patch('builtins.open', mock_open()) as mocked_file:
             cli_main()
             mocked_file.assert_called_with('/Users/ask/PycharmProjects/passGen/passwordGenerator/logs/log.txt', 'a',
-                                           encoding=None, errors=None)
-
+                                           encoding='utf-8', errors='ignore')
 
 if __name__ == '__main__':
     unittest.main()
