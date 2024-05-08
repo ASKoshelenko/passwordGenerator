@@ -1,37 +1,28 @@
 import logging
 import os
 
-def setup_logging(verbosity, write_to_file):
-    """Настройка логгирования в консоль и, опционально, в файл."""
-    levels = {
-        0: logging.WARNING,
-        1: logging.INFO,
-        2: logging.DEBUG,
-        3: logging.NOTSET
-    }
-    console_log_level = levels.get(verbosity, logging.INFO)
+def setup_logging(verbosity=0):
+    """Set up logging with an optional verbosity level."""
+    log_levels = {0: logging.INFO, 1: logging.DEBUG, 2: logging.DEBUG, 3: logging.DEBUG}
+    log_level = log_levels.get(verbosity, logging.INFO)
 
-    # Создаем логгер
     logger = logging.getLogger()
-    logger.setLevel(logging.DEBUG)  # Устанавливаем самый низкий уровень для логгера
+    logger.setLevel(log_level)
 
-    # Очищаем предыдущие обработчики, если они есть
-    if logger.hasHandlers():
-        logger.handlers.clear()
+    # Define formatter
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
-    # Console handler
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(console_log_level)
-    console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-    logger.addHandler(console_handler)
+    # Log to file by default
+    log_file_path = os.path.join(os.path.dirname(__file__), '..', 'logs', 'log.txt')
+    file_handler = logging.FileHandler(log_file_path, mode='a', encoding='utf-8', errors='ignore')
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
 
-    # File handler setup if requested
-    if write_to_file:
-        # Установка абсолютного пути к файлу логов
-        log_file_path = os.path.join(os.path.dirname(__file__), '..', 'logs', 'log.txt')
-        file_handler = logging.FileHandler(log_file_path, encoding='utf-8', errors='ignore')
-        file_handler.setLevel(levels.get(verbosity, logging.INFO))
-        file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - Executed Command: "%(message)s"'))
-        logger.addHandler(file_handler)
+    # Conditionally log to console based on verbosity
+    if verbosity > 0:
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(log_level)
+        console_handler.setFormatter(formatter)
+        logger.addHandler(console_handler)
 
     return logger
