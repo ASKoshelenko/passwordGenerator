@@ -75,3 +75,8 @@
 2024-05-08 10:42:46,019 - INFO - Generated password from pattern: L{10}
 2024-05-08 10:42:46,019 - INFO - Generated password from pattern: p{4}
 2024-05-08 10:42:46,019 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-08 10:45:02,282 - INFO - Generated password from pattern: d{6}
+2024-05-08 10:45:02,283 - INFO - Generated password from pattern: l{8}
+2024-05-08 10:45:02,283 - INFO - Generated password from pattern: L{10}
+2024-05-08 10:45:02,283 - INFO - Generated password from pattern: p{4}
+2024-05-08 10:45:02,283 - INFO - Generated password from pattern: u{4}l{4}d{4}
