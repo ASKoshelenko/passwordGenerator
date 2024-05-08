@@ -8,6 +8,29 @@ class TestPasswordFeatures(unittest.TestCase):
         """Setup for each test case."""
         self.manager = PasswordManager()
 
+    def test_pattern_password_structure(self):
+        """Test that the password matches the defined pattern."""
+        pattern = 'u{2}d{3}l{2}'  # Use 'u' for uppercase
+        password = self.manager.generate_pattern_password(pattern)
+        self.assertTrue(password[0:2].isupper(), "First 2 characters should be uppercase letters.")
+        self.assertTrue(password[2:5].isdigit(), "Next 3 characters should be digits.")
+        self.assertTrue(password[5:7].islower(), "Last 2 characters should be lowercase letters.")
+
+    def test_vowel_password(self):
+        pattern = 'v{10}'  # Use 'v' for vowels
+        password = self.manager.generate_pattern_password(pattern)
+        self.assertTrue(all(char in PasswordManager.VOWELS for char in password), "All characters should be vowels.")
+
+    def test_consonant_password(self):
+        pattern = 'c{10}'  # Use 'c' for consonants
+        password = self.manager.generate_pattern_password(pattern)
+        self.assertTrue(all(char in PasswordManager.CONSONANTS for char in password), "All characters should be consonants.")
+
+    def test_special_characters_password(self):
+        pattern = 's{10}'  # Use 's' for special characters
+        password = self.manager.generate_pattern_password(pattern)
+        self.assertTrue(all(char in PasswordManager.SPECIAL_CHARACTERS for char in password), "All characters should be special characters.")
+
     def test_random_password_length(self):
         """Test that the random password has the correct length."""
         length = 15
@@ -39,7 +62,6 @@ class TestPasswordFeatures(unittest.TestCase):
         end_time = time.time()
         duration = end_time - start_time
         self.assertLess(duration, 10, "Generating 1000 passwords should take less than 10 seconds")
-
 
 if __name__ == '__main__':
     unittest.main()
