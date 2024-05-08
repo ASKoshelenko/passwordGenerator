@@ -12,12 +12,9 @@ def main():
     parser.add_argument('-v', '--verbose', action='count', default=0, help='Increases verbosity level.')
     parser.add_argument('-f', '--file', type=str, help='File with list of password patterns.')
 
-    args, unknown = parser.parse_known_args()  # Catch unknown args
-    if unknown:
-        print(f"Unknown arguments: {unknown}")
-        return
+    args = parser.parse_known_args()[0]
 
-    logger, debug_logger = setup_logging(args.verbose)
+    general_logger, debug_logger = setup_logging(args.verbose)
 
     pm = PasswordManager()
 
@@ -25,21 +22,18 @@ def main():
         if args.template:
             for _ in range(args.count):
                 password = pm.generate_pattern_password(args.template)
-                logger.info(f"Generated password from template: {args.template}")
-                if debug_logger:
-                    debug_logger.debug(f"Template used: {args.template}, Password: {password}")
+                general_logger.info(f"Generated password from template '{args.template}'")
+                debug_logger.debug(f"Password: {password}")
                 print(password)
         else:
             for _ in range(args.count):
                 password = pm.generate_random_password(args.length, args.charset)
-                logger.info("Generated random password.")
-                if debug_logger:
-                    debug_logger.debug(f"Charset used: {args.charset}, Password: {password}")
+                general_logger.info("Generated random password.")
+                debug_logger.debug(f"Password: {password}")
                 print(password)
     except Exception as e:
-        logger.error(f"Error occurred: {str(e)}")
-        if debug_logger:
-            debug_logger.error(f"Exception details: {str(e)}")
+        general_logger.error(f"Error occurred: {str(e)}")
+        debug_logger.error(f"Exception details: {str(e)}")
 
 if __name__ == '__main__':
     main()
