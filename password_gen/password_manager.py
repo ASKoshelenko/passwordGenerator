@@ -2,25 +2,48 @@ import random
 import string
 import re
 
+
 class PasswordManager:
+    """
+    Manages generation of passwords based on given specifications.
+    """
+
     def generate_random_password(self, length=12, charset=string.ascii_letters + string.digits):
-        """Generate a random password from the specified character set."""
+        """
+        Generates a random password from the specified character set.
+
+        Args:
+            length (int): Length of the password to generate.
+            charset (str): String of characters to use for generating the password.
+
+        Returns:
+            str: The generated random password.
+        """
         return ''.join(random.choice(charset) for _ in range(length))
 
     def generate_pattern_password(self, pattern):
-        """Generate a password based on a specific pattern."""
+        """
+        Generates a password based on a specific pattern.
+
+        Args:
+            pattern (str): A pattern string with format characters (d, l, L, p, u) followed by optional quantifiers in curly braces.
+
+        Returns:
+            str: The generated password based on the pattern.
+        """
         result = ""
+        # Improved regex to handle potential pattern errors more gracefully
         tokens = re.findall(r'([dlLpu])(?:\{(\d+)\})?', pattern)
         for char_type, count in tokens:
             count = int(count) if count else 1
-            if char_type == 'd':
-                result += ''.join(random.choice(string.digits) for _ in range(count))
-            elif char_type == 'l':
-                result += ''.join(random.choice(string.ascii_lowercase) for _ in range(count))
-            elif char_type == 'L':
-                result += ''.join(random.choice(string.ascii_letters) for _ in range(count))
-            elif char_type == 'p':
-                result += ''.join(random.choice(string.punctuation) for _ in range(count))
-            elif char_type == 'u':
-                result += ''.join(random.choice(string.ascii_uppercase) for _ in range(count))
+            char_set = {
+                'd': string.digits,
+                'l': string.ascii_lowercase,
+                'L': string.ascii_letters,
+                'p': string.punctuation,
+                'u': string.ascii_uppercase
+            }.get(char_type, '')
+
+            result += ''.join(random.choice(char_set) for _ in range(count))
         return result
+
