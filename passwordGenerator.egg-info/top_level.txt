@@ -1,6 +1,0 @@
-cli
-config
-data
-logs
-password_gen
-tests

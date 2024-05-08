@@ -1,4 +1,0 @@
-Metadata-Version: 2.1
-Name: passwordGenerator
-Version: 1.0
-Requires-Dist: argparse==1.4.0
