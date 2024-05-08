@@ -16,3 +16,62 @@
 2024-05-08 07:51:14,824 - INFO - Generated random password.
 2024-05-08 07:54:03,077 - INFO - Generated random password.
 2024-05-08 07:54:20,814 - INFO - Generated random password.
+2024-05-08 08:02:40,880 - INFO - Generated random password.
+2024-05-08 10:07:52,909 - INFO - Generated random password.
+2024-05-08 10:09:10,950 - INFO - Generated random password.
+2024-05-08 10:09:44,859 - INFO - Generated random password.
+2024-05-08 10:09:49,105 - INFO - Generated random password.
+2024-05-08 10:10:01,455 - INFO - Generated random password.
+2024-05-08 10:11:09,348 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-08 10:11:09,349 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-08 10:11:53,175 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-08 10:11:53,175 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-08 10:16:39,259 - INFO - Generated random password.
+2024-05-08 10:16:55,475 - INFO - Generated random password.
+2024-05-08 10:17:06,566 - INFO - Generated random password.
+
+
+Генерация случайного пароля без дополнительной подробности:
+2024-05-08 10:20:43,272 - INFO - Generated random password.
+
+Генерация случайного пароля с минимальной подробностью логирования:
+2024-05-08 10:21:19,844 - INFO - Generated random password.
+
+Генерация пароля с использованием специфического набора символов: python -m cli.main -S "abc123" -n 10 -c 5
+2024-05-08 10:21:56,660 - INFO - Generated random password.
+2024-05-08 10:21:56,660 - INFO - Generated random password.
+2024-05-08 10:21:56,661 - INFO - Generated random password.
+2024-05-08 10:21:56,661 - INFO - Generated random password.
+2024-05-08 10:21:56,661 - INFO - Generated random password.
+
+Генерация пароля по шаблону с максимальной подробностью логирования: python -m cli.main -t "u{4}d{3}l{2}" -c 2 -vvv
+2024-05-08 10:22:36,060 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-08 10:22:36,061 - INFO - Generated password from template: u{4}d{3}l{2}
+
+Генерация паролей из файла с паттернами: python -m cli.main -f "../data/password_patterns.txt" -vv
+2024-05-08 10:23:30,712 - INFO - Generated random password.
+
+
+
+2024-05-08 10:30:22,276 - ERROR - Error occurred: [Errno 2] No such file or directory: '../data/password_patterns.txt'
+2024-05-08 10:32:51,844 - INFO - Generated password from pattern: d{6}
+2024-05-08 10:32:51,844 - INFO - Generated password from pattern: l{8}
+2024-05-08 10:32:51,844 - INFO - Generated password from pattern: L{10}
+2024-05-08 10:32:51,844 - INFO - Generated password from pattern: p{4}
+2024-05-08 10:32:51,844 - INFO - Generated password from pattern: u{4}l{4}d{4}
+
+Проверка обработки неизвестных аргументов: python -m cli.main -x
+
+2024-05-08 10:34:07,187 - INFO - Generated random password.
+2024-05-08 10:39:53,578 - ERROR - Error occurred: [Errno 2] No such file or directory: '../data/password_patterns.txt'
+2024-05-08 10:41:39,901 - INFO - Generated password from pattern: d{6}
+2024-05-08 10:41:39,901 - INFO - Generated password from pattern: l{8}
+2024-05-08 10:41:39,902 - INFO - Generated password from pattern: L{10}
+2024-05-08 10:41:39,902 - INFO - Generated password from pattern: p{4}
+2024-05-08 10:41:39,902 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-08 10:41:48,032 - INFO - Generated random password.
+2024-05-08 10:42:46,019 - INFO - Generated password from pattern: d{6}
+2024-05-08 10:42:46,019 - INFO - Generated password from pattern: l{8}
+2024-05-08 10:42:46,019 - INFO - Generated password from pattern: L{10}
+2024-05-08 10:42:46,019 - INFO - Generated password from pattern: p{4}
+2024-05-08 10:42:46,019 - INFO - Generated password from pattern: u{4}l{4}d{4}
