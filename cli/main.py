@@ -1,3 +1,4 @@
+import random
 import sys
 import argparse
 import string
@@ -21,23 +22,19 @@ def main():
     Entry point of the password generator application.
     It processes command line arguments and directs the flow of the application based on those arguments.
     """
-    parser = argparse.ArgumentParser(description="Password Generator Tool", add_help=False)
+    parser = argparse.ArgumentParser(description="Password Generator Tool")
     parser.add_argument('-n', '--length', type=int, default=DEFAULT_LENGTH, help='Specifies the length of the password.')
     parser.add_argument('-S', '--charset', type=str, default=DEFAULT_CHARSET, help='Character set to use for password generation.')
     parser.add_argument('-t', '--template', type=str, help='Template for generating passwords.')
     parser.add_argument('-c', '--count', type=int, default=DEFAULT_COUNT, help='Number of passwords to generate.')
     parser.add_argument('-v', '--verbose', action='count', default=LOG_LEVEL_INFO, help='Set the verbosity level of logging.')
     parser.add_argument('-f', '--file', type=str, help='Path to a file containing password patterns.')
-    parser.add_argument('-h', '--help', action='store_true', help='Display this help message and exit.')
+    parser.add_argument('-r', '--randomize', action='store_true', help='Randomly permute characters of the password.')
 
     args, unknown = parser.parse_known_args()
 
-    if args.help:
-        parser.print_help()
-        sys.exit(0)
-
     if unknown:
-        print(f"Unknown arguments: {unknown}. Use '-h' for help.")
+        print(f"Unknown arguments: {unknown}. Use '--help' for help.")
         sys.exit(1)
 
     general_logger, debug_logger = setup_logging(args.verbose)
@@ -47,7 +44,10 @@ def main():
         if args.file:
             process_password_file(args, pm, general_logger, debug_logger)
         elif args.template:
-            generate_from_template(args, pm, general_logger, debug_logger)
+            password = generate_from_template(args, pm, general_logger, debug_logger)
+            if args.randomize:
+                password = ''.join(random.sample(password, len(password)))
+            print(password)
         else:
             generate_random_passwords(args, pm, general_logger, debug_logger)
     except Exception as e:
@@ -56,9 +56,6 @@ def main():
         sys.exit(1)
 
 def process_password_file(args, pm, general_logger, debug_logger):
-    """
-    Reads patterns from a file and generates passwords according to these patterns.
-    """
     file_path = os.path.join(os.path.dirname(__file__), '..', 'data', args.file)
     try:
         with open(file_path, 'r') as file:
@@ -76,19 +73,12 @@ def process_password_file(args, pm, general_logger, debug_logger):
         sys.exit(1)
 
 def generate_from_template(args, pm, general_logger, debug_logger):
-    """
-    Generates passwords based on a provided template.
-    """
-    for _ in range(args.count):
-        password = pm.generate_pattern_password(args.template)
-        general_logger.info(f"Generated password from template: {args.template}")
-        debug_logger.debug(f"Template used: {args.template}, Generated password: {password}")
-        print(password)
+    password = pm.generate_pattern_password(args.template)
+    general_logger.info(f"Generated password from template: {args.template}")
+    debug_logger.debug(f"Template used: {args.template}, Generated password: {password}")
+    return password
 
 def generate_random_passwords(args, pm, general_logger, debug_logger):
-    """
-    Generates a specified number of random passwords using defined settings.
-    """
     for _ in range(args.count):
         password = pm.generate_random_password(args.length, args.charset)
         general_logger.info("Generated random password.")

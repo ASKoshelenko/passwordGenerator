@@ -5,63 +5,43 @@ from passwordGenerator.password_gen.password_manager import PasswordManager
 
 class TestPasswordFeatures(unittest.TestCase):
     def setUp(self):
-        """Setup for each test case."""
         self.manager = PasswordManager()
 
     def test_pattern_password_structure(self):
-        """Test that the password matches the defined pattern."""
-        pattern = 'u{2}d{3}l{2}'  # Use 'u' for uppercase
-        password = self.manager.generate_pattern_password(pattern)
-        self.assertTrue(password[0:2].isupper(), "First 2 characters should be uppercase letters.")
-        self.assertTrue(password[2:5].isdigit(), "Next 3 characters should be digits.")
-        self.assertTrue(password[5:7].islower(), "Last 2 characters should be lowercase letters.")
-
-    def test_vowel_password(self):
-        pattern = 'v{10}'  # Use 'v' for vowels
-        password = self.manager.generate_pattern_password(pattern)
-        self.assertTrue(all(char in PasswordManager.VOWELS for char in password), "All characters should be vowels.")
-
-    def test_consonant_password(self):
-        pattern = 'c{10}'  # Use 'c' for consonants
-        password = self.manager.generate_pattern_password(pattern)
-        self.assertTrue(all(char in PasswordManager.CONSONANTS for char in password), "All characters should be consonants.")
-
-    def test_special_characters_password(self):
-        pattern = 's{10}'  # Use 's' for special characters
-        password = self.manager.generate_pattern_password(pattern)
-        self.assertTrue(all(char in PasswordManager.SPECIAL_CHARACTERS for char in password), "All characters should be special characters.")
-
-    def test_random_password_length(self):
-        """Test that the random password has the correct length."""
-        length = 15
-        password = self.manager.generate_random_password(length=length)
-        self.assertEqual(len(password), length, f"Password length should be {length}")
-
-    def test_pattern_password_structure(self):
-        """Test that the password matches the defined pattern."""
         pattern = 'u{2}d{3}l{2}'
         password = self.manager.generate_pattern_password(pattern)
-        self.assertTrue(password[0:2].isupper(), "First 2 characters should be uppercase letters.")
-        self.assertTrue(password[2:5].isdigit(), "Next 3 characters should be digits.")
-        self.assertTrue(password[5:7].islower(), "Last 2 characters should be lowercase letters.")
+        self.assertTrue(password[0:2].isupper() and password[2:5].isdigit() and password[5:7].islower(), "Pattern structure is incorrect.")
+
+    def test_vowel_password(self):
+        pattern = 'v{10}'
+        password = self.manager.generate_pattern_password(pattern)
+        self.assertTrue(all(char in 'aeiou' for char in password), "Not all characters are lower-case vowels.")
+
+    def test_consonant_password(self):
+        pattern = 'c{10}'
+        password = self.manager.generate_pattern_password(pattern)
+        self.assertTrue(all(char in 'bcdfghjklmnpqrstvwxyz' for char in password), "Not all characters are lower-case consonants.")
+
+    def test_special_characters_password(self):
+        pattern = 's{10}'
+        password = self.manager.generate_pattern_password(pattern)
+        self.assertTrue(all(char in '!@#$%^&*()-_=+' for char in password), "Not all characters are special characters.")
+
+    def test_random_password_length(self):
+        length = 15
+        password = self.manager.generate_random_password(length)
+        self.assertEqual(len(password), length, "Random password length is incorrect.")
 
     def test_unique_passwords(self):
-        """Test that multiple generated passwords are unique."""
-        passwords = set()
-        num_passwords = 100  # Generate 100 passwords
-        for _ in range(num_passwords):
-            password = self.manager.generate_random_password(10)
-            passwords.add(password)
-        self.assertEqual(len(passwords), num_passwords, "All generated passwords should be unique.")
+        passwords = set(self.manager.generate_random_password(10) for _ in range(100))
+        self.assertEqual(len(passwords), 100, "Passwords are not unique.")
 
     def test_performance_large_scale_password_generation(self):
-        """Test that the password generator can handle large-scale operations efficiently."""
         start_time = time.time()
-        for _ in range(1000):  # Generate 1000 passwords
+        for _ in range(1000):
             self.manager.generate_random_password(10)
-        end_time = time.time()
-        duration = end_time - start_time
-        self.assertLess(duration, 10, "Generating 1000 passwords should take less than 10 seconds")
+        duration = time.time() - start_time
+        self.assertLess(duration, 10, "Performance criteria not met.")
 
 if __name__ == '__main__':
     unittest.main()
