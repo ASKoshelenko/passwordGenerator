@@ -137,3 +137,55 @@
 2024-05-08 12:45:18,053 - INFO - Generated password from pattern: L{10}
 2024-05-08 12:45:18,053 - INFO - Generated password from pattern: p{4}
 2024-05-08 12:45:18,053 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-08 12:47:33,202 - ERROR - Error occurred: [Errno 2] No such file or directory: '/Users/ask/PycharmProjects/passGen/passwordGenerator/cli/../data/nonexistent.txt'
+2024-05-08 12:47:56,427 - ERROR - Error occurred: [Errno 2] No such file or directory: '/Users/ask/PycharmProjects/passGen/passwordGenerator/cli/../data/nonexistent.txt'
+2024-05-08 12:52:15,509 - ERROR - File not found: /Users/ask/PycharmProjects/passGen/passwordGenerator/cli/../data/nonexistent.txt
+2024-05-08 12:53:49,781 - INFO - Generated random password.
+2024-05-08 12:59:59,998 - ERROR - File not found: /Users/ask/PycharmProjects/passGen/passwordGenerator/cli/../data/nonexistent.txt
+2024-05-08 13:01:26,030 - ERROR - File not found: /Users/ask/PycharmProjects/passGen/passwordGenerator/cli/../data/../data/password_pattern121s.txt
+2024-05-08 13:02:48,920 - ERROR - File not found: /Users/ask/PycharmProjects/passGen/passwordGenerator/cli/../data/../data/password_pattern121s.txt
+2024-05-08 13:23:08,947 - ERROR - File not found: /Users/ask/PycharmProjects/passGen/passwordGenerator/cli/../data/../data/password_pattern121s.txt
+2024-05-08 13:23:17,278 - INFO - Generated password from pattern: d{6}
+2024-05-08 13:23:17,278 - INFO - Generated password from pattern: l{8}
+2024-05-08 13:23:17,278 - INFO - Generated password from pattern: L{10}
+2024-05-08 13:23:17,278 - INFO - Generated password from pattern: p{4}
+2024-05-08 13:23:17,278 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-08 13:23:26,841 - INFO - Generated random password.
+2024-05-08 13:23:26,841 - INFO - Generated random password.
+2024-05-08 13:23:26,841 - INFO - Generated random password.
+2024-05-08 13:26:59,878 - INFO - Generated random password.
+2024-05-08 13:26:59,878 - INFO - Generated random password.
+2024-05-08 13:26:59,878 - INFO - Generated random password.
+2024-05-08 13:27:02,827 - INFO - Generated password from pattern: d{6}
+2024-05-08 13:27:02,827 - INFO - Generated password from pattern: d{6}
+2024-05-08 13:27:02,827 - INFO - Generated password from pattern: d{6}
+2024-05-08 13:27:02,827 - INFO - Generated password from pattern: l{8}
+2024-05-08 13:27:02,827 - INFO - Generated password from pattern: l{8}
+2024-05-08 13:27:02,827 - INFO - Generated password from pattern: l{8}
+2024-05-08 13:27:02,827 - INFO - Generated password from pattern: L{10}
+2024-05-08 13:27:02,827 - INFO - Generated password from pattern: L{10}
+2024-05-08 13:27:02,827 - INFO - Generated password from pattern: L{10}
+2024-05-08 13:27:02,828 - INFO - Generated password from pattern: p{4}
+2024-05-08 13:27:02,828 - INFO - Generated password from pattern: p{4}
+2024-05-08 13:27:02,828 - INFO - Generated password from pattern: p{4}
+2024-05-08 13:27:02,828 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-08 13:27:02,828 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-08 13:27:02,828 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-08 13:36:09,420 - INFO - Generated password from pattern: d{6}
+2024-05-08 13:36:09,420 - INFO - Generated password from pattern: d{6}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: d{6}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: l{8}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: l{8}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: l{8}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: L{10}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: L{10}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: L{10}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: p{4}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: p{4}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: p{4}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-08 13:36:09,421 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-08 13:36:14,006 - INFO - Generated random password.
+2024-05-08 13:36:14,006 - INFO - Generated random password.
+2024-05-08 13:36:14,006 - INFO - Generated random password.
