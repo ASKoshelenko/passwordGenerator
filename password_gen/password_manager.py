@@ -13,6 +13,7 @@ class PasswordManager:
     def __init__(self):
         # Predefined character sets updated with correct keys
         self.character_sets = {
+            'L': string.ascii_letters,
             'd': string.digits,
             'l': string.ascii_lowercase,
             'u': string.ascii_uppercase,
@@ -33,10 +34,10 @@ class PasswordManager:
         Generates a password based on a specific pattern.
         """
         result = ""
-        # Improved regex to handle potential pattern errors more gracefully
-        tokens = re.findall(r'([dlupcsv])(?:\{(\d+)\})?', pattern)
+        # Updated regex to handle all character placeholders correctly
+        tokens = re.findall(r'([dlupcsvLV])(\{\d+\})?', pattern)
         for char_type, count in tokens:
-            count = int(count) if count else 1
+            count = int(count.strip('{}')) if count else 1  # Correctly strip curly braces and convert to integer
             char_set = self.character_sets.get(char_type, '')
             result += ''.join(random.choice(char_set) for _ in range(count))
         return result
