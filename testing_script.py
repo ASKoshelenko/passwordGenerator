@@ -1,7 +1,15 @@
 import subprocess
 
 def run_command(command):
-    """Запускает команду в системе и возвращает вывод."""
+    """
+    Executes a shell command and returns its output or an error message.
+
+    Args:
+        command (str): The command string to execute in the shell.
+
+    Returns:
+        str: The standard output from the command if successful, or an error message if the command fails.
+    """
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
     if process.returncode == 0:
@@ -10,6 +18,12 @@ def run_command(command):
         return f"Error: {stderr.decode('utf-8').strip()}"
 
 def main():
+    """
+    Main function to execute a series of predefined CLI commands for a password generator application.
+    Each command is designed to test different functionalities of the password generator.
+
+    The output of each command is printed, providing a clear view of its execution result.
+    """
     commands = [
         "python -m cli.main -t 'a{10}' -c 1",
         "python -m cli.main -t 'A{10}' -c 1",
@@ -32,17 +46,16 @@ def main():
         "python -m cli.main -t 'HH-HH-HH-HH-HH-HH' -c 3",
         "python -m cli.main -t 'uullA{6}' -r -c 1",
         "python -m cli.main -t '@[ABCDEF]{9}' -r -c 1",
-        "python -m cli.main -n 8 -S 'abc123!@#' -c 5",  # Генерация простых паролей с кастомным набором символов
-        "python -m cli.main -n 10 -S 'abcABC123' -c 5",  # Простая генерация паролей с заданным набором символов
-        "python -m cli.main -t 'u{4}d{3}l{2}' -c 2 -vvv",  # Шаблонная генерация с повышенной детализацией логирования
-        "python -m cli.main -f '../data/password_patterns.txt' -c 2 -vv", # Чтение шаблонов из файла с детальным логированием
-        "python -m cli.main -t 'L{10}' -r -c 1",  # Генерация паролей по шаблону с перестановкой символов
-        "python -m cli.main -t '[dpl]{5}' -c 3",  # Генерация паролей из пользовательского набора символов
-        "python -m cli.main -t 'ddddd' -c 5",  # Генерация цифровых паролей
-        "python -m cli.main -t 'u{4}d{3}-l{2}' -c 1",  # Генерация паролей с дефисом
-        "python -m cli.main -t 'u{4}[dl]{3}-l{2}' -c 1",  # Генерация паролей с выбором символов из двух групп
-        "python -m cli.main -t '[d|l]{10}'", # Генерация из двух возможных наборов: цифры или строчные буквы
-
+        "python -m cli.main -n 8 -S 'abc123!@#' -c 5",
+        "python -m cli.main -n 10 -S 'abcABC123' -c 5",
+        "python -m cli.main -t 'u{4}d{3}l{2}' -c 2 -vvv",
+        "python -m cli.main -f '../data/password_patterns.txt' -c 2 -vv",
+        "python -m cli.main -t 'L{10}' -r -c 1",
+        "python -m cli.main -t '[dpl]{5}' -c 3",
+        "python -m cli.main -t 'ddddd' -c 5",
+        "python -m cli.main -t 'u{4}d{3}-l{2}' -c 1",
+        "python -m cli.main -t 'u{4}[dl]{3}-l{2}' -c 1",
+        "python -m cli.main -t '[d|l]{10}'",
     ]
 
     for cmd in commands:

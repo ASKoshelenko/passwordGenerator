@@ -1,48 +1,50 @@
 import logging
 import os
 
-# Константы путей для файлов логгирования
-LOG_DIRECTORY = os.path.join(os.path.dirname(__file__), '..', 'logs')
-GENERAL_LOG_FILE = 'log.txt'
-DEBUG_LOG_FILE = 'debug.txt'
+# Constants for log file paths
+LOG_DIRECTORY = os.path.join(os.path.dirname(__file__), '..', 'logs')  # Directory for log files
+GENERAL_LOG_FILE = 'log.txt'  # General log file name
+DEBUG_LOG_FILE = 'debug.txt'  # Debug log file name
 
-# Уровни логгирования
-LOG_LEVEL_INFO = 1
-LOG_LEVEL_DEBUG = 2
-
+# Logging levels
+LOG_LEVEL_INFO = 1  # Equivalent to logging.INFO
+LOG_LEVEL_DEBUG = 2  # Equivalent to logging.DEBUG
 
 def setup_logging(verbosity=0):
     """
-    Configures logging for the application with optional verbosity level.
+    Configures and initializes logging for the application based on the given verbosity level.
+    Sets up both a general logger and a debug logger with appropriate log files.
 
     Args:
-        verbosity (int): The verbosity level. 0 - default (INFO), higher values increase verbosity.
+        verbosity (int): The verbosity level of logging, where 0 is INFO by default and higher values enable DEBUG.
 
     Returns:
-        tuple: Tuple containing the general logger and debug logger.
+        tuple: A tuple containing two logging.Logger objects: (general_logger, debug_logger).
+               - general_logger: for standard operational logs.
+               - debug_logger: for detailed debug information, activated at higher verbosity levels.
     """
     log_levels = {
-        0: logging.INFO,
-        LOG_LEVEL_INFO: logging.INFO,
-        LOG_LEVEL_DEBUG: logging.DEBUG
+        0: logging.INFO,  # Default level
+        LOG_LEVEL_INFO: logging.INFO,  # Info level
+        LOG_LEVEL_DEBUG: logging.DEBUG  # Debug level
     }
-    log_level = log_levels.get(verbosity, logging.INFO)
+    log_level = log_levels.get(verbosity, logging.INFO)  # Determine log level based on verbosity
 
-    # Настройка основного логгера
+    # Setting up the general logger
     general_logger = logging.getLogger('general')
     general_logger.setLevel(log_level)
-    clear_handlers(general_logger)
+    clear_handlers(general_logger)  # Avoid duplicate logging
 
-    # Форматирование сообщений
+    # Message format for logging
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
-    # Основной файл журнала
+    # General log file setup
     general_log_path = os.path.join(LOG_DIRECTORY, GENERAL_LOG_FILE)
     file_handler = logging.FileHandler(general_log_path, mode='a', encoding='utf-8', errors='ignore')
     file_handler.setFormatter(formatter)
     general_logger.addHandler(file_handler)
 
-    # Журнал отладки для более подробного вывода
+    # Debug logger setup for more detailed output
     debug_logger = logging.getLogger('debug')
     debug_log_path = os.path.join(LOG_DIRECTORY, DEBUG_LOG_FILE)
     debug_file_handler = logging.FileHandler(debug_log_path, mode='a', encoding='utf-8', errors='ignore')
@@ -52,15 +54,17 @@ def setup_logging(verbosity=0):
 
     return general_logger, debug_logger
 
-
 def clear_handlers(logger):
     """
-    Clears all handlers from the specified logger to prevent duplicate logs.
+    Removes all handlers attached to the specified logger to prevent duplicate log entries.
 
     Args:
-        logger (logging.Logger): The logger from which to remove all handlers.
+        logger (logging.Logger): The logger from which handlers will be removed.
+
+    Returns:
+        None: This function modifies the logger in-place and does not return a value.
     """
     while logger.handlers:
         handler = logger.handlers[0]
-        handler.close()
-        logger.removeHandler(handler)
+        handler.close()  # Properly close the handler
+        logger.removeHandler(handler)  # Remove the handler from the logger
