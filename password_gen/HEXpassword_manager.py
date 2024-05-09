@@ -3,11 +3,15 @@ import string
 import re
 
 class PasswordManager:
+    """
+    Manages generation of passwords based on given specifications.
+    """
     SPECIAL_CHARACTERS = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
     HEX_LOWER = '0123456789abcdef'
     HEX_UPPER = '0123456789ABCDEF'
 
     def __init__(self):
+        # Expanded character sets
         self.character_sets = {
             'd': string.digits,
             'l': string.ascii_lowercase,
@@ -36,8 +40,9 @@ class PasswordManager:
 
     def generate_pattern_password(self, pattern):
         result = ""
-        pattern = self._expand_custom_sets(pattern)
+        pattern = self._expand_custom_sets(pattern)  # Expand custom sets before parsing
 
+        # Parsing the expanded pattern to generate the password
         tokens = re.findall(r'([a-zA-Z])(\{\d+\})?', pattern)
         for char_type, count in tokens:
             count = int(count.strip('{}')) if count else 1
@@ -45,24 +50,29 @@ class PasswordManager:
             part = ''.join(random.choice(char_set) for _ in range(count))
             result += part
 
+        # Special formatting for HEX patterns with dashes
         if 'H' in pattern and '-' in pattern:
             formatted_result = '-'.join(result[i:i + 2] for i in range(0, len(result), 2))
-            return formatted_result[:17]
+            return formatted_result[:17]  # Adjusted to ensure correct format
         return result
 
     def _expand_custom_sets(self, pattern):
+        # Handling custom character sets and alternative choices within square brackets
         while '[' in pattern:
             start = pattern.index('[')
             end = pattern.index(']', start)
-            content = pattern[start+1:end]
+            content = pattern[start + 1:end]
 
             if '|' in content:
                 options = content.split('|')
-                chosen_set = ''.join(random.choice(self.character_sets.get(option, option)) for option in options)
-                replace_count = int(re.search(r'\{(\d+)\}', pattern[end+1:]).group(1)) if '{' in pattern[end:] else 1
-                pattern = pattern.replace(pattern[start:end+1] + '{' + str(replace_count) + '}', chosen_set * replace_count)
+                # Selecting a random option from the split contents to use as the character set
+                chosen_set = random.choice(options)
+                chosen_set = self.character_sets.get(chosen_set,
+                                                     chosen_set)  # Fallback to the string itself if not a preset
+                pattern = pattern.replace(pattern[start:end + 1], chosen_set * 10)  # Replicate chosen set, assumes {10}
             else:
-                chosen_set = content
-                replace_count = int(re.search(r'\{(\d+)\}', pattern[end+1:]).group(1)) if '{' in pattern[end:] else 1
-                pattern = pattern.replace(pattern[start:end+1] + '{' + str(replace_count) + '}', chosen_set * replace_count)
+                # Direct replacement of custom set without choices
+                pattern = pattern.replace(pattern[start:end + 1], content)
         return pattern
+
+

@@ -3,11 +3,15 @@ import string
 import re
 
 class PasswordManager:
+    """
+    Manages generation of passwords based on given specifications.
+    """
     SPECIAL_CHARACTERS = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
     HEX_LOWER = '0123456789abcdef'
     HEX_UPPER = '0123456789ABCDEF'
 
     def __init__(self):
+        # Expanded character sets
         self.character_sets = {
             'd': string.digits,
             'l': string.ascii_lowercase,
@@ -42,12 +46,8 @@ class PasswordManager:
         for char_type, count in tokens:
             count = int(count.strip('{}')) if count else 1
             char_set = self.character_sets.get(char_type, '')
-            part = ''.join(random.choice(char_set) for _ in range(count))
-            result += part
+            result += ''.join(random.choice(char_set) for _ in range(count))
 
-        if 'H' in pattern and '-' in pattern:
-            formatted_result = '-'.join(result[i:i + 2] for i in range(0, len(result), 2))
-            return formatted_result[:17]
         return result
 
     def _expand_custom_sets(self, pattern):
@@ -58,11 +58,13 @@ class PasswordManager:
 
             if '|' in content:
                 options = content.split('|')
-                chosen_set = ''.join(random.choice(self.character_sets.get(option, option)) for option in options)
-                replace_count = int(re.search(r'\{(\d+)\}', pattern[end+1:]).group(1)) if '{' in pattern[end:] else 1
-                pattern = pattern.replace(pattern[start:end+1] + '{' + str(replace_count) + '}', chosen_set * replace_count)
+                chosen_option = random.choice(options)
+                chosen_set = self.character_sets.get(chosen_option.strip(), chosen_option.strip())
+                pattern = pattern.replace(pattern[start:end+1], chosen_set * 10)
             else:
-                chosen_set = content
-                replace_count = int(re.search(r'\{(\d+)\}', pattern[end+1:]).group(1)) if '{' in pattern[end:] else 1
-                pattern = pattern.replace(pattern[start:end+1] + '{' + str(replace_count) + '}', chosen_set * replace_count)
+                chosen_set = ''.join(self.character_sets.get(c, c) for c in content)
+                pattern = pattern.replace(pattern[start:end+1], chosen_set)
+
         return pattern
+
+
