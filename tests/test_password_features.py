@@ -22,10 +22,10 @@ class TestPasswordFeatures(unittest.TestCase):
         password = self.manager.generate_pattern_password(pattern)
         self.assertTrue(all(char in 'bcdfghjklmnpqrstvwxyz' for char in password), "Not all characters are lower-case consonants.")
 
-    def test_special_characters_password(self):
+    def test_special_characters_password(self, SPECIAL_CHARACTERS="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"):
         pattern = 's{10}'
         password = self.manager.generate_pattern_password(pattern)
-        self.assertTrue(all(char in '!@#$%^&*()-_=+' for char in password), "Not all characters are special characters.")
+        self.assertTrue(all(char in SPECIAL_CHARACTERS for char in password), "Not all characters are special characters.")
 
     def test_random_password_length(self):
         length = 15

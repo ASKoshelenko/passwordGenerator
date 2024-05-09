@@ -44,10 +44,11 @@ def main():
         if args.file:
             process_password_file(args, pm, general_logger, debug_logger)
         elif args.template:
-            password = generate_from_template(args, pm, general_logger, debug_logger)
-            if args.randomize:
-                password = ''.join(random.sample(password, len(password)))
-            print(password)
+            passwords = generate_from_template(args, pm, general_logger, debug_logger)
+            for password in passwords:
+                if args.randomize:
+                    password = ''.join(random.sample(password, len(password)))
+                print(password)
         else:
             generate_random_passwords(args, pm, general_logger, debug_logger)
     except Exception as e:
@@ -72,23 +73,14 @@ def process_password_file(args, pm, general_logger, debug_logger):
         print(f"File not found: {file_path}")
         sys.exit(1)
 
-
 def generate_from_template(args, pm, general_logger, debug_logger):
-    passwords = []  # Список для хранения сгенерированных паролей
-    for _ in range(args.count):  # Цикл должен повторяться args.count раз
+    passwords = []
+    for _ in range(args.count):
         password = pm.generate_pattern_password(args.template)
         general_logger.info(f"Generated password from template: {args.template}")
         debug_logger.debug(f"Template used: {args.template}, Generated password: {password}")
-        print(password)  # Вывод каждого сгенерированного пароля
-        passwords.append(password)  # Добавление пароля в список
-    return passwords  # Возврат списка паролей
-
-
-# def generate_from_template(args, pm, general_logger, debug_logger):
-#     password = pm.generate_pattern_password(args.template)
-#     general_logger.info(f"Generated password from template: {args.template}")
-#     debug_logger.debug(f"Template used: {args.template}, Generated password: {password}")
-#     return password
+        passwords.append(password)
+    return passwords
 
 def generate_random_passwords(args, pm, general_logger, debug_logger):
     for _ in range(args.count):
