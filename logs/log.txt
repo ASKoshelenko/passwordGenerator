@@ -353,3 +353,34 @@
 2024-05-08 19:26:59,202 - INFO - Generated password from template: H{64}
 2024-05-08 19:27:03,281 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
 2024-05-08 19:27:11,030 - INFO - Generated password from template: uullA{6}
+2024-05-09 05:46:31,865 - INFO - Generated random password.
+2024-05-09 05:46:41,648 - INFO - Generated random password.
+2024-05-09 05:47:17,934 - INFO - Generated password from template: u{4}d{4}
+2024-05-09 05:47:17,966 - INFO - Generated password from template: u{4}d{4}
+2024-05-09 05:47:57,027 - INFO - Generated password from template: u{2}d{3}l{2}
+2024-05-09 05:48:47,055 - ERROR - File not found: /Users/ask/PycharmProjects/passGen/passwordGenerator/cli/../data/data/password_patterns.txt
+2024-05-09 05:49:56,767 - INFO - Generated password from pattern: d{6}
+2024-05-09 05:49:56,767 - INFO - Generated password from pattern: l{8}
+2024-05-09 05:49:56,767 - INFO - Generated password from pattern: L{10}
+2024-05-09 05:49:56,767 - INFO - Generated password from pattern: p{4}
+2024-05-09 05:49:56,767 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-09 05:50:13,485 - INFO - Generated password from template: u{2}d{3}l{2}
+2024-05-09 05:50:27,379 - INFO - Generated random password.
+2024-05-09 05:50:27,379 - INFO - Generated random password.
+2024-05-09 05:50:27,379 - INFO - Generated random password.
+2024-05-09 05:50:27,379 - INFO - Generated random password.
+2024-05-09 05:50:27,379 - INFO - Generated random password.
+2024-05-09 05:50:50,883 - INFO - Generated password from pattern: d{6}
+2024-05-09 05:50:50,883 - INFO - Generated password from pattern: d{6}
+2024-05-09 05:50:50,883 - INFO - Generated password from pattern: l{8}
+2024-05-09 05:50:50,883 - INFO - Generated password from pattern: l{8}
+2024-05-09 05:50:50,883 - INFO - Generated password from pattern: L{10}
+2024-05-09 05:50:50,884 - INFO - Generated password from pattern: L{10}
+2024-05-09 05:50:50,884 - INFO - Generated password from pattern: p{4}
+2024-05-09 05:50:50,884 - INFO - Generated password from pattern: p{4}
+2024-05-09 05:50:50,884 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-09 05:50:50,884 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-09 05:51:08,701 - INFO - Generated password from template: u{2}d{3}l{2}
+2024-05-09 05:55:11,662 - INFO - Generated password from template: u{2}d{3}l{2}
+2024-05-09 05:55:11,663 - INFO - Generated password from template: u{2}d{3}l{2}
+2024-05-09 05:55:11,663 - INFO - Generated password from template: u{2}d{3}l{2}

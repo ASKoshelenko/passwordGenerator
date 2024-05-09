@@ -72,11 +72,23 @@ def process_password_file(args, pm, general_logger, debug_logger):
         print(f"File not found: {file_path}")
         sys.exit(1)
 
+
 def generate_from_template(args, pm, general_logger, debug_logger):
-    password = pm.generate_pattern_password(args.template)
-    general_logger.info(f"Generated password from template: {args.template}")
-    debug_logger.debug(f"Template used: {args.template}, Generated password: {password}")
-    return password
+    passwords = []  # Список для хранения сгенерированных паролей
+    for _ in range(args.count):  # Цикл должен повторяться args.count раз
+        password = pm.generate_pattern_password(args.template)
+        general_logger.info(f"Generated password from template: {args.template}")
+        debug_logger.debug(f"Template used: {args.template}, Generated password: {password}")
+        print(password)  # Вывод каждого сгенерированного пароля
+        passwords.append(password)  # Добавление пароля в список
+    return passwords  # Возврат списка паролей
+
+
+# def generate_from_template(args, pm, general_logger, debug_logger):
+#     password = pm.generate_pattern_password(args.template)
+#     general_logger.info(f"Generated password from template: {args.template}")
+#     debug_logger.debug(f"Template used: {args.template}, Generated password: {password}")
+#     return password
 
 def generate_random_passwords(args, pm, general_logger, debug_logger):
     for _ in range(args.count):
