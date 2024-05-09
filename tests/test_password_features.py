@@ -3,6 +3,7 @@ import time
 
 from passwordGenerator.password_gen.password_manager import PasswordManager
 
+
 class TestPasswordFeatures(unittest.TestCase):
     """
     Test suite for the functionality of the PasswordManager class.
@@ -80,6 +81,7 @@ class TestPasswordFeatures(unittest.TestCase):
             self.manager.generate_random_password(10)
         duration = time.time() - start_time
         self.assertLess(duration, 10, "Performance criteria not met.")
+
 
 if __name__ == '__main__':
     unittest.main()

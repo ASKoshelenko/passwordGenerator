@@ -1729,3 +1729,229 @@
 2024-05-09 15:46:12,160 - INFO - Generated password from template: u{4}d{3}-l{2}
 2024-05-09 15:46:12,195 - INFO - Generated password from template: u{4}[dl]{3}-l{2}
 2024-05-09 15:46:12,222 - INFO - Generated password from template: [d|l]{10}
+2024-05-09 15:51:11,733 - INFO - Generated password from template: a{10}
+2024-05-09 15:51:11,765 - INFO - Generated password from template: A{10}
+2024-05-09 15:51:11,795 - INFO - Generated password from template: U{10}
+2024-05-09 15:51:11,822 - INFO - Generated password from template: h{10}
+2024-05-09 15:51:11,849 - INFO - Generated password from template: H{10}
+2024-05-09 15:51:11,889 - INFO - Generated password from template: v{10}
+2024-05-09 15:51:11,916 - INFO - Generated password from template: V{10}
+2024-05-09 15:51:11,944 - INFO - Generated password from template: Z{10}
+2024-05-09 15:51:11,975 - INFO - Generated password from template: c{10}
+2024-05-09 15:51:12,004 - INFO - Generated password from template: C{10}
+2024-05-09 15:51:12,034 - INFO - Generated password from template: z{10}
+2024-05-09 15:51:12,062 - INFO - Generated password from template: b{10}
+2024-05-09 15:51:12,091 - INFO - Generated password from template: s{10}
+2024-05-09 15:51:12,119 - INFO - Generated password from template: S{10}
+2024-05-09 15:51:12,147 - INFO - Generated password from template: x{10}
+2024-05-09 15:51:12,176 - INFO - Generated password from template: H{10}
+2024-05-09 15:51:12,206 - INFO - Generated password from template: H{32}
+2024-05-09 15:51:12,235 - INFO - Generated password from template: H{64}
+2024-05-09 15:51:12,265 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:51:12,265 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:51:12,265 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:51:12,293 - INFO - Generated password from template: uullA{6}
+2024-05-09 15:51:12,320 - INFO - Generated password from template: @[ABCDEF]{9}
+2024-05-09 15:51:12,360 - INFO - Generated random password.
+2024-05-09 15:51:12,361 - INFO - Generated random password.
+2024-05-09 15:51:12,361 - INFO - Generated random password.
+2024-05-09 15:51:12,361 - INFO - Generated random password.
+2024-05-09 15:51:12,361 - INFO - Generated random password.
+2024-05-09 15:51:12,387 - INFO - Generated random password.
+2024-05-09 15:51:12,388 - INFO - Generated random password.
+2024-05-09 15:51:12,388 - INFO - Generated random password.
+2024-05-09 15:51:12,388 - INFO - Generated random password.
+2024-05-09 15:51:12,388 - INFO - Generated random password.
+2024-05-09 15:51:12,416 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-09 15:51:12,417 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-09 15:51:12,446 - INFO - Generated password from pattern: d{6}
+2024-05-09 15:51:12,446 - INFO - Generated password from pattern: d{6}
+2024-05-09 15:51:12,446 - INFO - Generated password from pattern: l{8}
+2024-05-09 15:51:12,446 - INFO - Generated password from pattern: l{8}
+2024-05-09 15:51:12,446 - INFO - Generated password from pattern: L{10}
+2024-05-09 15:51:12,447 - INFO - Generated password from pattern: L{10}
+2024-05-09 15:51:12,447 - INFO - Generated password from pattern: p{4}
+2024-05-09 15:51:12,447 - INFO - Generated password from pattern: p{4}
+2024-05-09 15:51:12,447 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-09 15:51:12,447 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-09 15:51:12,475 - INFO - Generated password from template: L{10}
+2024-05-09 15:51:12,503 - INFO - Generated password from template: [dpl]{5}
+2024-05-09 15:51:12,503 - INFO - Generated password from template: [dpl]{5}
+2024-05-09 15:51:12,503 - INFO - Generated password from template: [dpl]{5}
+2024-05-09 15:51:12,529 - INFO - Generated password from template: ddddd
+2024-05-09 15:51:12,529 - INFO - Generated password from template: ddddd
+2024-05-09 15:51:12,529 - INFO - Generated password from template: ddddd
+2024-05-09 15:51:12,529 - INFO - Generated password from template: ddddd
+2024-05-09 15:51:12,529 - INFO - Generated password from template: ddddd
+2024-05-09 15:51:12,556 - INFO - Generated password from template: u{4}d{3}-l{2}
+2024-05-09 15:51:12,582 - INFO - Generated password from template: u{4}[dl]{3}-l{2}
+2024-05-09 15:51:12,611 - INFO - Generated password from template: [d|l]{10}
+2024-05-09 15:54:36,689 - INFO - Generated password from template: a{10}
+2024-05-09 15:54:36,717 - INFO - Generated password from template: A{10}
+2024-05-09 15:54:36,743 - INFO - Generated password from template: U{10}
+2024-05-09 15:54:36,772 - INFO - Generated password from template: h{10}
+2024-05-09 15:54:36,798 - INFO - Generated password from template: H{10}
+2024-05-09 15:54:36,825 - INFO - Generated password from template: v{10}
+2024-05-09 15:54:36,851 - INFO - Generated password from template: V{10}
+2024-05-09 15:54:36,877 - INFO - Generated password from template: Z{10}
+2024-05-09 15:54:36,902 - INFO - Generated password from template: c{10}
+2024-05-09 15:54:36,958 - INFO - Generated password from template: C{10}
+2024-05-09 15:54:37,037 - INFO - Generated password from template: z{10}
+2024-05-09 15:54:37,116 - INFO - Generated password from template: b{10}
+2024-05-09 15:54:37,194 - INFO - Generated password from template: s{10}
+2024-05-09 15:54:37,260 - INFO - Generated password from template: S{10}
+2024-05-09 15:54:37,313 - INFO - Generated password from template: x{10}
+2024-05-09 15:54:37,354 - INFO - Generated password from template: H{10}
+2024-05-09 15:54:37,403 - INFO - Generated password from template: H{32}
+2024-05-09 15:54:37,444 - INFO - Generated password from template: H{64}
+2024-05-09 15:54:37,476 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:54:37,476 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:54:37,476 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:54:37,537 - INFO - Generated password from template: uullA{6}
+2024-05-09 15:54:37,567 - ERROR - Error occurred: 'NoneType' object has no attribute 'group'
+2024-05-09 15:54:37,605 - INFO - Generated random password.
+2024-05-09 15:54:37,605 - INFO - Generated random password.
+2024-05-09 15:54:37,605 - INFO - Generated random password.
+2024-05-09 15:54:37,605 - INFO - Generated random password.
+2024-05-09 15:54:37,605 - INFO - Generated random password.
+2024-05-09 15:54:37,641 - INFO - Generated random password.
+2024-05-09 15:54:37,641 - INFO - Generated random password.
+2024-05-09 15:54:37,641 - INFO - Generated random password.
+2024-05-09 15:54:37,641 - INFO - Generated random password.
+2024-05-09 15:54:37,641 - INFO - Generated random password.
+2024-05-09 15:54:37,674 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-09 15:54:37,674 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-09 15:54:37,700 - INFO - Generated password from pattern: d{6}
+2024-05-09 15:54:37,701 - INFO - Generated password from pattern: d{6}
+2024-05-09 15:54:37,701 - INFO - Generated password from pattern: l{8}
+2024-05-09 15:54:37,701 - INFO - Generated password from pattern: l{8}
+2024-05-09 15:54:37,701 - INFO - Generated password from pattern: L{10}
+2024-05-09 15:54:37,701 - INFO - Generated password from pattern: L{10}
+2024-05-09 15:54:37,701 - INFO - Generated password from pattern: p{4}
+2024-05-09 15:54:37,701 - INFO - Generated password from pattern: p{4}
+2024-05-09 15:54:37,701 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-09 15:54:37,701 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-09 15:54:37,727 - INFO - Generated password from template: L{10}
+2024-05-09 15:54:37,753 - ERROR - Error occurred: 'NoneType' object has no attribute 'group'
+2024-05-09 15:54:37,782 - INFO - Generated password from template: ddddd
+2024-05-09 15:54:37,782 - INFO - Generated password from template: ddddd
+2024-05-09 15:54:37,782 - INFO - Generated password from template: ddddd
+2024-05-09 15:54:37,782 - INFO - Generated password from template: ddddd
+2024-05-09 15:54:37,782 - INFO - Generated password from template: ddddd
+2024-05-09 15:54:37,810 - INFO - Generated password from template: u{4}d{3}-l{2}
+2024-05-09 15:54:37,839 - ERROR - Error occurred: 'NoneType' object has no attribute 'group'
+2024-05-09 15:54:37,867 - ERROR - Error occurred: 'NoneType' object has no attribute 'group'
+2024-05-09 15:54:55,795 - INFO - Generated password from template: a{10}
+2024-05-09 15:54:55,823 - INFO - Generated password from template: A{10}
+2024-05-09 15:54:55,851 - INFO - Generated password from template: U{10}
+2024-05-09 15:54:55,877 - INFO - Generated password from template: h{10}
+2024-05-09 15:54:55,912 - INFO - Generated password from template: H{10}
+2024-05-09 15:54:55,940 - INFO - Generated password from template: v{10}
+2024-05-09 15:54:55,968 - INFO - Generated password from template: V{10}
+2024-05-09 15:54:55,995 - INFO - Generated password from template: Z{10}
+2024-05-09 15:54:56,024 - INFO - Generated password from template: c{10}
+2024-05-09 15:54:56,077 - INFO - Generated password from template: C{10}
+2024-05-09 15:54:56,143 - INFO - Generated password from template: z{10}
+2024-05-09 15:54:56,175 - INFO - Generated password from template: b{10}
+2024-05-09 15:54:56,202 - INFO - Generated password from template: s{10}
+2024-05-09 15:54:56,230 - INFO - Generated password from template: S{10}
+2024-05-09 15:54:56,258 - INFO - Generated password from template: x{10}
+2024-05-09 15:54:56,287 - INFO - Generated password from template: H{10}
+2024-05-09 15:54:56,316 - INFO - Generated password from template: H{32}
+2024-05-09 15:54:56,351 - INFO - Generated password from template: H{64}
+2024-05-09 15:54:56,379 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:54:56,379 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:54:56,379 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:54:56,407 - INFO - Generated password from template: uullA{6}
+2024-05-09 15:54:56,434 - INFO - Generated password from template: @[ABCDEF]{9}
+2024-05-09 15:54:56,460 - INFO - Generated random password.
+2024-05-09 15:54:56,460 - INFO - Generated random password.
+2024-05-09 15:54:56,460 - INFO - Generated random password.
+2024-05-09 15:54:56,460 - INFO - Generated random password.
+2024-05-09 15:54:56,460 - INFO - Generated random password.
+2024-05-09 15:54:56,489 - INFO - Generated random password.
+2024-05-09 15:54:56,502 - INFO - Generated random password.
+2024-05-09 15:54:56,503 - INFO - Generated random password.
+2024-05-09 15:54:56,503 - INFO - Generated random password.
+2024-05-09 15:54:56,503 - INFO - Generated random password.
+2024-05-09 15:54:56,532 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-09 15:54:56,532 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-09 15:54:56,561 - INFO - Generated password from pattern: d{6}
+2024-05-09 15:54:56,561 - INFO - Generated password from pattern: d{6}
+2024-05-09 15:54:56,561 - INFO - Generated password from pattern: l{8}
+2024-05-09 15:54:56,562 - INFO - Generated password from pattern: l{8}
+2024-05-09 15:54:56,562 - INFO - Generated password from pattern: L{10}
+2024-05-09 15:54:56,562 - INFO - Generated password from pattern: L{10}
+2024-05-09 15:54:56,562 - INFO - Generated password from pattern: p{4}
+2024-05-09 15:54:56,562 - INFO - Generated password from pattern: p{4}
+2024-05-09 15:54:56,562 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-09 15:54:56,562 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-09 15:54:56,589 - INFO - Generated password from template: L{10}
+2024-05-09 15:54:56,615 - INFO - Generated password from template: [dpl]{5}
+2024-05-09 15:54:56,615 - INFO - Generated password from template: [dpl]{5}
+2024-05-09 15:54:56,615 - INFO - Generated password from template: [dpl]{5}
+2024-05-09 15:54:56,642 - INFO - Generated password from template: ddddd
+2024-05-09 15:54:56,642 - INFO - Generated password from template: ddddd
+2024-05-09 15:54:56,642 - INFO - Generated password from template: ddddd
+2024-05-09 15:54:56,642 - INFO - Generated password from template: ddddd
+2024-05-09 15:54:56,642 - INFO - Generated password from template: ddddd
+2024-05-09 15:54:56,668 - INFO - Generated password from template: u{4}d{3}-l{2}
+2024-05-09 15:54:56,695 - INFO - Generated password from template: u{4}[dl]{3}-l{2}
+2024-05-09 15:54:56,722 - INFO - Generated password from template: [d|l]{10}
+2024-05-09 15:58:11,796 - INFO - Generated password from template: a{10}
+2024-05-09 15:58:11,824 - INFO - Generated password from template: A{10}
+2024-05-09 15:58:11,850 - INFO - Generated password from template: U{10}
+2024-05-09 15:58:11,877 - INFO - Generated password from template: h{10}
+2024-05-09 15:58:11,905 - INFO - Generated password from template: H{10}
+2024-05-09 15:58:11,931 - INFO - Generated password from template: v{10}
+2024-05-09 15:58:11,958 - INFO - Generated password from template: V{10}
+2024-05-09 15:58:11,985 - INFO - Generated password from template: Z{10}
+2024-05-09 15:58:12,013 - INFO - Generated password from template: c{10}
+2024-05-09 15:58:12,043 - INFO - Generated password from template: C{10}
+2024-05-09 15:58:12,072 - INFO - Generated password from template: z{10}
+2024-05-09 15:58:12,102 - INFO - Generated password from template: b{10}
+2024-05-09 15:58:12,130 - INFO - Generated password from template: s{10}
+2024-05-09 15:58:12,157 - INFO - Generated password from template: S{10}
+2024-05-09 15:58:12,185 - INFO - Generated password from template: x{10}
+2024-05-09 15:58:12,212 - INFO - Generated password from template: H{10}
+2024-05-09 15:58:12,241 - INFO - Generated password from template: H{32}
+2024-05-09 15:58:12,269 - INFO - Generated password from template: H{64}
+2024-05-09 15:58:12,324 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:58:12,324 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:58:12,325 - INFO - Generated password from template: HH-HH-HH-HH-HH-HH
+2024-05-09 15:58:12,352 - INFO - Generated password from template: uullA{6}
+2024-05-09 15:58:12,379 - INFO - Generated password from template: @[ABCDEF]{9}
+2024-05-09 15:58:12,406 - INFO - Generated random password.
+2024-05-09 15:58:12,406 - INFO - Generated random password.
+2024-05-09 15:58:12,406 - INFO - Generated random password.
+2024-05-09 15:58:12,406 - INFO - Generated random password.
+2024-05-09 15:58:12,406 - INFO - Generated random password.
+2024-05-09 15:58:12,432 - INFO - Generated random password.
+2024-05-09 15:58:12,432 - INFO - Generated random password.
+2024-05-09 15:58:12,432 - INFO - Generated random password.
+2024-05-09 15:58:12,432 - INFO - Generated random password.
+2024-05-09 15:58:12,432 - INFO - Generated random password.
+2024-05-09 15:58:12,459 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-09 15:58:12,460 - INFO - Generated password from template: u{4}d{3}l{2}
+2024-05-09 15:58:12,488 - INFO - Generated password from pattern: d{6}
+2024-05-09 15:58:12,489 - INFO - Generated password from pattern: d{6}
+2024-05-09 15:58:12,489 - INFO - Generated password from pattern: l{8}
+2024-05-09 15:58:12,489 - INFO - Generated password from pattern: l{8}
+2024-05-09 15:58:12,489 - INFO - Generated password from pattern: L{10}
+2024-05-09 15:58:12,489 - INFO - Generated password from pattern: L{10}
+2024-05-09 15:58:12,489 - INFO - Generated password from pattern: p{4}
+2024-05-09 15:58:12,489 - INFO - Generated password from pattern: p{4}
+2024-05-09 15:58:12,489 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-09 15:58:12,489 - INFO - Generated password from pattern: u{4}l{4}d{4}
+2024-05-09 15:58:12,521 - INFO - Generated password from template: L{10}
+2024-05-09 15:58:12,550 - INFO - Generated password from template: [dpl]{5}
+2024-05-09 15:58:12,550 - INFO - Generated password from template: [dpl]{5}
+2024-05-09 15:58:12,550 - INFO - Generated password from template: [dpl]{5}
+2024-05-09 15:58:12,577 - INFO - Generated password from template: ddddd
+2024-05-09 15:58:12,577 - INFO - Generated password from template: ddddd
+2024-05-09 15:58:12,577 - INFO - Generated password from template: ddddd
+2024-05-09 15:58:12,577 - INFO - Generated password from template: ddddd
+2024-05-09 15:58:12,577 - INFO - Generated password from template: ddddd
+2024-05-09 15:58:12,603 - INFO - Generated password from template: u{4}d{3}-l{2}
+2024-05-09 15:58:12,630 - INFO - Generated password from template: u{4}[dl]{3}-l{2}
+2024-05-09 15:58:12,656 - INFO - Generated password from template: [d|l]{10}

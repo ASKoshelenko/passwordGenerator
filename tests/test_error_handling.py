@@ -4,6 +4,7 @@ from io import StringIO
 
 from passwordGenerator.cli.main import main
 
+
 class TestCLIErrorHandling(unittest.TestCase):
     """
     Test suite for the CLI error handling of the password generator application.
@@ -31,6 +32,7 @@ class TestCLIErrorHandling(unittest.TestCase):
                 main()
             # Check for the expected error message in console output
             self.assertIn("Unknown arguments: ['-x']", mocked_stdout.getvalue())
+
 
 if __name__ == '__main__':
     unittest.main()

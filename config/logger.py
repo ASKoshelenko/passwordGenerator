@@ -10,6 +10,7 @@ DEBUG_LOG_FILE = 'debug.txt'  # Debug log file name
 LOG_LEVEL_INFO = 1  # Equivalent to logging.INFO
 LOG_LEVEL_DEBUG = 2  # Equivalent to logging.DEBUG
 
+
 def setup_logging(verbosity=0):
     """
     Configures and initializes logging for the application based on the given verbosity level.
@@ -53,6 +54,7 @@ def setup_logging(verbosity=0):
     debug_logger.setLevel(logging.DEBUG if verbosity >= LOG_LEVEL_DEBUG else logging.NOTSET)
 
     return general_logger, debug_logger
+
 
 def clear_handlers(logger):
     """

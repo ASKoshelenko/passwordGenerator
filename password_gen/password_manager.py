@@ -2,6 +2,7 @@ import random
 import string
 import re
 
+
 class PasswordManager:
     """
     Manages password generation based on predefined character sets and custom pattern inputs.
@@ -39,13 +40,13 @@ class PasswordManager:
             'x': ''.join(chr(i) for i in range(0xA1, 0x100) if i != 0xAD),
         }
 
-    def generate_random_password(self, length=DEFAULT_LENGTH, charset=string.ascii_letters + string.digits):
+    @staticmethod
+    def generate_random_password(length=DEFAULT_LENGTH, charset=string.ascii_letters + string.digits):
         """
         Generates a random password of a specified length using a specified character set.
 
-        Args:
-            length (int): The length of the password to be generated. Defaults to DEFAULT_LENGTH.
-            charset (str): The set of characters to use for generating the password. Defaults to a combination of letters and digits.
+        Args: length (int): The length of the password to be generated. Defaults to DEFAULT_LENGTH. charset (str):
+        The set of characters to use for generating the password. Defaults to a combination of letters and digits.
 
         Returns:
             str: The generated random password.
@@ -54,7 +55,8 @@ class PasswordManager:
 
     def generate_pattern_password(self, pattern):
         """
-        Generates a password based on a specified pattern. The pattern can include character set indicators and length specifiers.
+        Generates a password based on a specified pattern. The pattern can include character set indicators and
+        length specifiers.
 
         Args:
             pattern (str): The pattern string used to generate the password.
@@ -98,7 +100,7 @@ class PasswordManager:
             content = pattern[start + 1:end]
 
             # Find the repetition count following the character set
-            count_match = re.search(r'\{(\d+)\}', pattern[end + 1:])
+            count_match = re.search(r"\{(\d+)\}", pattern[end + 1:])
             replace_count = int(count_match.group(1)) if count_match else 1
 
             if '|' in content:

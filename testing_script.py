@@ -1,5 +1,6 @@
 import subprocess
 
+
 def run_command(command):
     """
     Executes a shell command and returns its output or an error message.
@@ -16,6 +17,7 @@ def run_command(command):
         return stdout.decode('utf-8').strip()
     else:
         return f"Error: {stderr.decode('utf-8').strip()}"
+
 
 def main():
     """

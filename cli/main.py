@@ -17,6 +17,7 @@ LOG_LEVEL_VERBOSE = 1
 LOG_LEVEL_DEBUG = 2
 LOG_LEVEL_DETAILED = 3
 
+
 def main():
     """
     Entry point of the password generator application.
@@ -26,11 +27,14 @@ def main():
         None: The function prints outputs directly and handles system exits.
     """
     parser = argparse.ArgumentParser(description="Password Generator Tool")
-    parser.add_argument('-n', '--length', type=int, default=DEFAULT_LENGTH, help='Specifies the length of the password.')
-    parser.add_argument('-S', '--charset', type=str, default=DEFAULT_CHARSET, help='Character set to use for password generation.')
+    parser.add_argument('-n', '--length', type=int, default=DEFAULT_LENGTH,
+                        help='Specifies the length of the password.')
+    parser.add_argument('-S', '--charset', type=str, default=DEFAULT_CHARSET,
+                        help='Character set to use for password generation.')
     parser.add_argument('-t', '--template', type=str, help='Template for generating passwords based on a pattern.')
     parser.add_argument('-c', '--count', type=int, default=DEFAULT_COUNT, help='Number of passwords to generate.')
-    parser.add_argument('-v', '--verbose', action='count', default=LOG_LEVEL_INFO, help='Set the verbosity level of logging.')
+    parser.add_argument('-v', '--verbose', action='count', default=LOG_LEVEL_INFO,
+                        help='Set the verbosity level of logging.')
     parser.add_argument('-f', '--file', type=str, help='Path to a file containing password patterns.')
     parser.add_argument('-r', '--randomize', action='store_true', help='Randomly permute characters of the password.')
 
@@ -58,6 +62,7 @@ def main():
         general_logger.error(f"Error occurred: {e}")
         debug_logger.error(f"Exception details: {e}")
         sys.exit(1)
+
 
 def process_password_file(args, pm, general_logger, debug_logger):
     """
@@ -88,6 +93,7 @@ def process_password_file(args, pm, general_logger, debug_logger):
         print(f"File not found: {file_path}")
         sys.exit(1)
 
+
 def generate_from_template(args, pm, general_logger, debug_logger):
     """
     Generates passwords from a specified template.
@@ -109,6 +115,7 @@ def generate_from_template(args, pm, general_logger, debug_logger):
         passwords.append(password)
     return passwords
 
+
 def generate_random_passwords(args, pm, general_logger, debug_logger):
     """
     Generates random passwords based on specified length and character set.
@@ -127,6 +134,7 @@ def generate_random_passwords(args, pm, general_logger, debug_logger):
         general_logger.info("Generated random password.")
         debug_logger.debug(f"Charset used: {args.charset}, Generated password: {password}")
         print(password)
+
 
 if __name__ == '__main__':
     main()

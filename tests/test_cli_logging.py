@@ -3,6 +3,7 @@ from unittest.mock import patch, MagicMock
 import logging
 from passwordGenerator.config.logger import setup_logging
 
+
 class TestCLI(unittest.TestCase):
     """
     Test suite for CLI-related logging functionality.
@@ -70,6 +71,7 @@ class TestCLI(unittest.TestCase):
         logger, debug_logger = setup_logging(verbosity=2)
         debug_logger.debug("Test debug message")
         mock_debug.assert_called_with("Test debug message")
+
 
 if __name__ == '__main__':
     unittest.main()
