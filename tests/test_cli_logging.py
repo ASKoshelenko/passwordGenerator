@@ -29,7 +29,7 @@ class TestCLI(unittest.TestCase):
             logging.getLogger(logger).handlers = []
 
     @patch('logging.FileHandler')
-    def test_logging_to_files(self, mock_file_handler):
+    def test_logging_file_handlers_initialization(self, mock_file_handler):
         """
         Test that file handlers are correctly initialized during logging setup.
 
@@ -43,7 +43,7 @@ class TestCLI(unittest.TestCase):
         mock_file_handler.assert_called()
 
     @patch('logging.Logger.info')
-    def test_verbose_logging_info(self, mock_info):
+    def test_info_logging_at_info_verbosity_level(self, mock_info):
         """
         Test that informational logging is correctly triggered at a specified verbosity level.
 
@@ -58,7 +58,7 @@ class TestCLI(unittest.TestCase):
         mock_info.assert_called_with("Test info message")
 
     @patch('logging.Logger.debug')
-    def test_verbose_logging_debug(self, mock_debug):
+    def test_debug_logging_at_debug_verbosity_level(self, mock_debug):
         """
         Test that debug logging is correctly triggered at a higher verbosity level.
 

@@ -3,7 +3,6 @@ import os
 
 # Constants for log file paths
 LOG_DIRECTORY = os.path.join(os.path.dirname(__file__), '..', 'logs')  # Directory for log files
-#TODO: Rename files with more understanding names
 GENERAL_LOG_FILE = 'password_generator.log'  # General log file name
 DEBUG_LOG_FILE = 'password_generator.debug'  # Debug log file name
 
@@ -38,7 +37,7 @@ def setup_logging(verbosity=0):
     clear_handlers(general_logger)  # Avoid duplicate logging
 
     # Message format for logging
-    formatter = logging.Formatter('%(asctime)s \t %(levelname)s \t %(message)s')
+    formatter = logging.Formatter('%(asctime)s \t %(levelname)s \t %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
     # General log file setup
     general_log_path = os.path.join(LOG_DIRECTORY, GENERAL_LOG_FILE)

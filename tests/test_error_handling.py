@@ -13,7 +13,7 @@ class TestCLIErrorHandling(unittest.TestCase):
     and ensures that appropriate error messages are displayed, and that the application exits correctly.
     """
 
-    def test_unknown_argument(self):
+    def test_uses_unknown_argument(self):
         """
         Verifies that the CLI properly handles unrecognized command-line arguments.
 

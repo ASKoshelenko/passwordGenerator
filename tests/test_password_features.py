@@ -18,7 +18,7 @@ class TestPasswordFeatures(unittest.TestCase):
         """
         self.manager = PasswordManager()
 
-    def test_pattern_password_structure(self):
+    def test_password_matches_pattern_structure(self):
         """
         Tests if the generated password matches a specific pattern structure.
 
@@ -30,7 +30,7 @@ class TestPasswordFeatures(unittest.TestCase):
         self.assertTrue(password[0:2].isupper() and password[2:5].isdigit() and password[5:7].islower(),
                         "Pattern structure is incorrect.")
 
-    def test_vowel_password(self):
+    def test_password_contains_only_vowels(self):
         """
         Tests if the generated password consists only of lowercase vowels as specified by the pattern 'v{10}'.
         """
@@ -38,7 +38,7 @@ class TestPasswordFeatures(unittest.TestCase):
         password = self.manager.generate_pattern_password(pattern)
         self.assertTrue(all(char in 'aeiou' for char in password), "Not all characters are lower-case vowels.")
 
-    def test_consonant_password(self):
+    def test_password_contains_only_consonants(self):
         """
         Tests if the generated password consists only of lowercase consonants as specified by the pattern 'c{10}'.
         """
@@ -47,7 +47,7 @@ class TestPasswordFeatures(unittest.TestCase):
         self.assertTrue(all(char in 'bcdfghjklmnpqrstvwxyz' for char in password),
                         "Not all characters are lower-case consonants.")
 
-    def test_special_characters_password(self, SPECIAL_CHARACTERS="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"):
+    def test_password_contains_only_special_characters(self, SPECIAL_CHARACTERS="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"):
         """
         Tests if the generated password consists only of special characters as specified by the pattern 's{10}'.
         """
@@ -56,7 +56,7 @@ class TestPasswordFeatures(unittest.TestCase):
         self.assertTrue(all(char in SPECIAL_CHARACTERS for char in password),
                         "Not all characters are special characters.")
 
-    def test_random_password_length(self):
+    def test_random_password_meets_specified_length(self):
         """
         Verifies that the length of the randomly generated password matches the specified length.
         """
@@ -64,14 +64,14 @@ class TestPasswordFeatures(unittest.TestCase):
         password = self.manager.generate_random_password(length)
         self.assertEqual(len(password), length, "Random password length is incorrect.")
 
-    def test_unique_passwords(self):
+    def test_random_passwords_are_unique(self):
         """
         Checks the uniqueness of 100 randomly generated passwords of length 10.
         """
         passwords = set(self.manager.generate_random_password(10) for _ in range(100))
         self.assertEqual(len(passwords), 100, "Passwords are not unique.")
 
-    def test_performance_large_scale_password_generation(self):
+    def test_performance_by_generating_multiple_passwords(self):
         """
         Measures the performance by generating 1000 passwords of length 10 and ensuring
         the operation completes within 10 seconds.
