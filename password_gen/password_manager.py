@@ -53,39 +53,39 @@ class PasswordManager:
         """
         return ''.join(random.choice(charset) for _ in range(length))
 
+    def generate_pattern_password(self, pattern):
+        """
+        Generates a password based on a specified pattern. The pattern can include character set indicators and
+        length specifiers.
 
+        Args:
+            pattern (str): The pattern string used to generate the password.
 
-    # def generate_pattern_password(self, pattern):
-    #     """
-    #     Generates a password based on a specified pattern. The pattern can include character set indicators and
-    #     length specifiers.
-    #
-    #     Args:
-    #         pattern (str): The pattern string used to generate the password.
-    #
-    #     Returns:
-    #         str: The generated password following the specified pattern.
-    #     """
-    #     result = ""
-    #     if pattern.startswith('@['):
-    #         # Special handling for patterns like '@[ABCDEF]{9}'
-    #         char_set = re.findall(r'\[([A-F]+)\]', pattern)
-    #         if char_set:
-    #             #TODO rewrite range(9)
-    #             return '@' + ''.join(random.choice(char_set[0]) for _ in range(9))
-    #
-    #     pattern = self._expand_custom_sets(pattern)
-    #     tokens = re.findall(r'([a-zA-Z])(\{\d+\})?', pattern)
-    #     for char_type, count in tokens:
-    #         count = int(count.strip('{}')) if count else 1
-    #         char_set = self.character_sets.get(char_type, '')
-    #         part = ''.join(random.choice(char_set) for _ in range(count))
-    #         result += part
-    #
-    #     if 'H' in pattern and '-' in pattern:
-    #         formatted_result = '-'.join(result[i:i + 2] for i in range(0, len(result), 2))
-    #         return formatted_result[:17]
-    #     return result
+        Returns:
+            str: The generated password following the specified pattern.
+        """
+        result = ""
+        if pattern.startswith('@['):
+            match = re.match(r'@\[([A-F]+)\]\{(\d+)\}', pattern)
+            if match:
+                char_set, count = match.groups()
+                return '@' + ''.join(random.choice(char_set) for _ in range(int(count)))
+
+        pattern = self._expand_custom_sets(pattern)
+        tokens = re.findall(r'([a-zA-Z])(\{\d+\})?', pattern)
+        for char_type, count in tokens:
+            count = int(count.strip('{}')) if count else 1
+            char_set = self.character_sets.get(char_type, '')
+            part = ''.join(random.choice(char_set) for _ in range(count))
+            result += part
+
+        if 'H' in pattern and '-' in pattern:
+            groups = pattern.count('H') // 2
+            dash_count = groups - 1
+            expected_length = groups * 2 + dash_count
+            formatted_result = '-'.join(result[i:i + 2] for i in range(0, len(result), 2))
+            return formatted_result[:expected_length]
+        return result
 
     def _expand_custom_sets(self, pattern):
         """

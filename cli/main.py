@@ -7,7 +7,6 @@ import os
 from passwordGenerator.password_gen.password_manager import PasswordManager
 from passwordGenerator.config.logger import setup_logging
 
-
 # Default settings for password generation
 DEFAULT_LENGTH = 12  # Default length of the generated password
 DEFAULT_CHARSET = string.ascii_letters + string.digits  # Default character set used for password generation
@@ -24,6 +23,7 @@ ERROR_UNKNOWN_ARGS = 1
 ERROR_FILE_NOT_FOUND = 2
 ERROR_EXCEPTION_OCCURRED = 3
 WARNING_EMPTY_FILE = "Yours file is empty, chose another and try again"
+
 
 def main():
     """
@@ -45,10 +45,10 @@ def main():
     parser.add_argument('-f', '--file', type=str, help='Path to a file containing password patterns.')
     parser.add_argument('-r', '--randomize', action='store_true', help='Randomly permute characters of the password.')
 
-    args, unknownArguments = parser.parse_known_args()
+    args, unknown_arguments = parser.parse_known_args()
 
-    if unknownArguments:
-        print(f"Unknown arguments: {unknownArguments}. Use '--help' for help.")
+    if unknown_arguments:
+        print(f"Unknown arguments: {unknown_arguments}. Use '--help' for help.")
         sys.exit(ERROR_UNKNOWN_ARGS)
 
     general_logger, debug_logger = setup_logging(args.verbose)
@@ -90,6 +90,7 @@ def process_password_file(args, pm, general_logger, debug_logger):
         general_logger.error(f"File not found: {file_path}")
         print(f"File not found: {file_path}")
         sys.exit(ERROR_FILE_NOT_FOUND)
+
 
 def generate_from_template(args, pm, general_logger, debug_logger):
     """

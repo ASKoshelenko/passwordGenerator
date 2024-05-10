@@ -2,13 +2,13 @@ import logging
 import os
 
 # Constants for log file paths
-LOG_DIRECTORY = os.path.join(os.path.dirname(__file__), '..', 'logs')  # Directory for log files
-GENERAL_LOG_FILE = 'password_generator.log'  # General log file name
-DEBUG_LOG_FILE = 'password_generator.debug'  # Debug log file name
+LOG_DIRECTORY = os.path.join(os.path.dirname(__file__), '..', 'logs')
+GENERAL_LOG_FILE = 'password_generator.log'
+DEBUG_LOG_FILE = 'password_generator.debug'
 
 # Logging levels
-LOG_LEVEL_INFO = 1  # Equivalent to logging.INFO
-LOG_LEVEL_DEBUG = 2  # Equivalent to logging.DEBUG
+LOG_LEVEL_INFO = 1
+LOG_LEVEL_DEBUG = 2
 
 
 def setup_logging(verbosity=0):
@@ -25,16 +25,16 @@ def setup_logging(verbosity=0):
                - debug_logger: for detailed debug information, activated at higher verbosity levels.
     """
     log_levels = {
-        0: logging.INFO,  # Default level
-        LOG_LEVEL_INFO: logging.INFO,  # Info level
-        LOG_LEVEL_DEBUG: logging.DEBUG  # Debug level
+        0: logging.INFO,
+        LOG_LEVEL_INFO: logging.INFO,
+        LOG_LEVEL_DEBUG: logging.DEBUG
     }
-    log_level = log_levels.get(verbosity, logging.INFO)  # Determine log level based on verbosity
+    log_level = log_levels.get(verbosity, logging.INFO)
 
     # Setting up the general logger
     general_logger = logging.getLogger('general')
     general_logger.setLevel(log_level)
-    clear_handlers(general_logger)  # Avoid duplicate logging
+    clear_handlers(general_logger)
 
     # Message format for logging
     formatter = logging.Formatter('%(asctime)s \t %(levelname)s \t %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -68,5 +68,5 @@ def clear_handlers(logger):
     """
     while logger.handlers:
         handler = logger.handlers[0]
-        handler.close()  # Properly close the handler
-        logger.removeHandler(handler)  # Remove the handler from the logger
+        handler.close()
+        logger.removeHandler(handler)
