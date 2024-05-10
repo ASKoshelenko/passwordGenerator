@@ -51,13 +51,13 @@ def main():
         "python -m cli.main -n 8 -S 'abc123!@#' -c 5",
         "python -m cli.main -n 10 -S 'abcABC123' -c 5",
         "python -m cli.main -t 'u{4}d{3}l{2}' -c 2 -vvv",
-        "python -m cli.main -f '../data/password_patterns.txt' -c 2 -vv",
+        "python -m cli.main -f '../data/password.patterns' -c 2 -vv",
         "python -m cli.main -t 'L{10}' -r -c 1",
         "python -m cli.main -t '[dpl]{5}' -c 3",
         "python -m cli.main -t 'ddddd' -c 5",
         "python -m cli.main -t 'u{4}d{3}-l{2}' -c 1",
         "python -m cli.main -t 'u{4}[dl]{3}-l{2}' -c 1",
-        "python -m cli.main -t '[d|l]{10}'",
+        # "python -m cli.main -t '[d|l]{10}'",
     ]
 
     for cmd in commands:

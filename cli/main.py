@@ -3,9 +3,11 @@ import sys
 import argparse
 import string
 import os
+
 from passwordGenerator.password_gen.password_manager import PasswordManager
 from passwordGenerator.config.logger import setup_logging
 
+ERROR = 1
 # Default settings for password generation
 DEFAULT_LENGTH = 12  # Default length of the generated password
 DEFAULT_CHARSET = string.ascii_letters + string.digits  # Default character set used for password generation
@@ -38,11 +40,11 @@ def main():
     parser.add_argument('-f', '--file', type=str, help='Path to a file containing password patterns.')
     parser.add_argument('-r', '--randomize', action='store_true', help='Randomly permute characters of the password.')
 
-    args, unknown = parser.parse_known_args()
+    args, unknownArguments = parser.parse_known_args()
 
-    if unknown:
-        print(f"Unknown arguments: {unknown}. Use '--help' for help.")
-        sys.exit(1)
+    if unknownArguments:
+        print(f"Unknown arguments: {unknownArguments}. Use '--help' for help.")
+        sys.exit(ERROR)
 
     general_logger, debug_logger = setup_logging(args.verbose)
     pm = PasswordManager()
@@ -61,7 +63,7 @@ def main():
     except Exception as e:
         general_logger.error(f"Error occurred: {e}")
         debug_logger.error(f"Exception details: {e}")
-        sys.exit(1)
+        sys.exit(ERROR)
 
 
 def process_password_file(args, pm, general_logger, debug_logger):
@@ -85,13 +87,13 @@ def process_password_file(args, pm, general_logger, debug_logger):
                 if pattern.strip():
                     for _ in range(args.count):
                         password = pm.generate_pattern_password(pattern.strip())
-                        general_logger.info(f"Generated password from pattern: {pattern.strip()}")
-                        debug_logger.debug(f"Pattern used: {pattern.strip()}, Generated password: {password}")
+                        general_logger.info(f"Generated password from pattern \t {pattern.strip()}")
+                        debug_logger.debug(f"Pattern used {pattern.strip()}\t Generated password {password}")
                         print(password)
     except FileNotFoundError:
         general_logger.error(f"File not found: {file_path}")
         print(f"File not found: {file_path}")
-        sys.exit(1)
+        sys.exit(ERROR)
 
 
 def generate_from_template(args, pm, general_logger, debug_logger):
@@ -110,8 +112,8 @@ def generate_from_template(args, pm, general_logger, debug_logger):
     passwords = []
     for _ in range(args.count):
         password = pm.generate_pattern_password(args.template)
-        general_logger.info(f"Generated password from template: {args.template}")
-        debug_logger.debug(f"Template used: {args.template}, Generated password: {password}")
+        general_logger.info(f"Generated password from template {args.template}")
+        debug_logger.debug(f"Template used {args.template} \t Generated password {password}")
         passwords.append(password)
     return passwords
 
@@ -132,7 +134,7 @@ def generate_random_passwords(args, pm, general_logger, debug_logger):
     for _ in range(args.count):
         password = pm.generate_random_password(args.length, args.charset)
         general_logger.info("Generated random password.")
-        debug_logger.debug(f"Charset used: {args.charset}, Generated password: {password}")
+        debug_logger.debug(f"Charset used {args.charset} \t Generated password {password}")
         print(password)
 
 

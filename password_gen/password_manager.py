@@ -69,6 +69,7 @@ class PasswordManager:
             # Special handling for patterns like '@[ABCDEF]{9}'
             char_set = re.findall(r'\[([A-F]+)\]', pattern)
             if char_set:
+                #TODO rewrite range(9)
                 return '@' + ''.join(random.choice(char_set[0]) for _ in range(9))
 
         pattern = self._expand_custom_sets(pattern)
